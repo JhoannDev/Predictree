@@ -1,0 +1,39 @@
+/*
+ * Colores y medidas de PredicTree.
+ * Tomados del prototipo navegable del equipo (Sesión 07) para mantener el mismo diseño.
+ * Usa SIEMPRE estas variables en lugar de escribir colores directamente.
+ */
+:root {
+  /* Marca */
+  --color-primario: #1447b8; /* --az del prototipo */
+  --color-primario-oscuro: #0f2f86; /* --azo */
+  --color-primario-suave: #e8effc;
+
+  /* Texto y superficies */
+  --color-texto: #0f1f3d; /* --tx */
+  --color-texto-suave: #5c6b86; /* --mu */
+  --color-borde: #e3e9f4; /* --bd */
+  --color-fondo: #f4f7fc; /* --bg */
+  --color-superficie: #ffffff;
+
+  /* Niveles de riesgo (siempre acompañados de texto o ícono, no solo color) */
+  --color-riesgo-bajo: #16a05b; /* --ver */
+  --color-riesgo-bajo-suave: #e7f6ee;
+  --color-riesgo-medio: #f59e0b; /* --nar */
+  --color-riesgo-medio-suave: #fff6e5;
+  --color-riesgo-alto: #dc2638; /* --roj */
+  --color-riesgo-alto-suave: #fdecee;
+
+  /* Tipografía */
+  --fuente-base: "Inter Variable", "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Formas */
+  --radio-sm: 8px;
+  --radio-md: 12px;
+  --radio-lg: 18px;
+  --sombra-tarjeta: 0 1px 2px rgb(15 31 61 / 6%), 0 6px 18px rgb(15 31 61 / 5%);
+
+  /* Estructura */
+  --ancho-sidebar: 248px;
+  --alto-topbar: 64px;
+}

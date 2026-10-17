@@ -1,0 +1,36 @@
+# Probado con Python 3.13. Instalar con:  pip install -r requirements.txt
+
+# --- API ---
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+pydantic-settings==2.15.0
+python-dotenv==1.2.4
+python-multipart==0.0.32
+
+# --- Base de datos ---
+SQLAlchemy==2.1.4
+psycopg[binary]==3.3.6
+
+# --- Seguridad ---
+PyJWT==2.15.1
+bcrypt==5.0.0
+
+# --- Datos e IA ---
+pandas==3.0.6
+numpy==2.5.4
+scikit-learn==1.9.1
+shap==0.53.0
+joblib==1.6.0
+
+# --- Reportes (Excel y PDF) ---
+openpyxl==3.1.5
+reportlab==5.0.1
+
+# --- Exploración en notebooks ---
+matplotlib==3.11.2
+ipykernel==7.4.0
+
+# --- Pruebas y calidad de código ---
+pytest==9.1.1
+httpx2==2.13.1
+ruff==0.17.0

@@ -1,0 +1,25 @@
+.encabezado {
+  margin-bottom: 24px;
+}
+
+.antetitulo {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-primario);
+}
+
+.titulo {
+  margin-top: 6px;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.descripcion {
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--color-texto-suave);
+}

@@ -1,0 +1,13 @@
+# Configuración de herramientas (no se usa para instalar paquetes: para eso está requirements.txt).
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+# E/F: errores básicos · I: orden de imports · UP: sintaxis moderna · B: errores comunes
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

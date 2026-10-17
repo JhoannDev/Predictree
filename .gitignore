@@ -1,0 +1,24 @@
+# ---------- Python ----------
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---------- Node / frontend ----------
+node_modules/
+dist/
+
+# ---------- Secretos (nunca subir) ----------
+.env
+.env.local
+
+# ---------- Archivos generados ----------
+data/generados/
+models/*.joblib
+
+# ---------- Sistema / editores ----------
+.DS_Store
+Thumbs.db
+*.log
