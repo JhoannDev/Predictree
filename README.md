@@ -100,7 +100,9 @@ Copy-Item .env.example .env
 - [x] Estructura del proyecto y herramientas configuradas
 - [x] Login con usuario y contraseña (JWT) y rutas protegidas
 - [x] Menú lateral y barra superior con el diseño del prototipo
-- [ ] Script completo de las 12 tablas y vistas de reportes
+- [x] Esquema de base de datos (17 tablas) y datos iniciales (240 habitaciones, calendario 2024-2027)
+- [x] Supuestos de los datos simulados con fuentes públicas (`docs/supuestos_datos_simulados.md`)
+- [ ] Vistas de los reportes R-01 a R-04
 - [ ] Generador de datos simulados
 - [ ] Carga y validación de archivos
 - [ ] Modelo predictivo de cancelación y no-show
