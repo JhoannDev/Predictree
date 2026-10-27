@@ -103,7 +103,7 @@ Copy-Item .env.example .env
 - [x] Esquema de base de datos (17 tablas) y datos iniciales (240 habitaciones, calendario 2024-2027)
 - [x] Supuestos de los datos simulados con fuentes públicas (`docs/supuestos_datos_simulados.md`)
 - [ ] Vistas de los reportes R-01 a R-04
-- [ ] Generador de datos simulados
+- [x] Generador de datos simulados (`python -m scripts.generar_datos`)
 - [ ] Carga y validación de archivos
 - [ ] Modelo predictivo de cancelación y no-show
 - [ ] Ocupación esperada, riesgo, fechas críticas y sugerencias de tarifa

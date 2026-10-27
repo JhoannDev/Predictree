@@ -8,6 +8,10 @@ target-version = "py313"
 # E/F: errores básicos · I: orden de imports · UP: sintaxis moderna · B: errores comunes
 select = ["E", "F", "I", "UP", "B"]
 
+[tool.ruff.lint.per-file-ignores]
+# Tablas de supuestos y textos del reporte: más legibles en una sola línea.
+"app/simulacion/*.py" = ["E501"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]

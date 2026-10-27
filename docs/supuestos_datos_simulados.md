@@ -19,7 +19,7 @@ esas fuentes.
 | Fecha de corte ("hoy" de la simulación) | **31/10/2026** (parámetro `fecha_corte`) |
 | Historia de reservas | Llegadas del **01/01/2024 al 30/10/2026** (~34 meses) |
 | Reservas futuras | Llegadas del **31/10/2026 al 28/01/2027** (horizonte de 90 días) |
-| Volumen estimado | **≈ 80 000 a 90 000 reservas** en total (≈ 28 000 por año) |
+| Volumen | **≈ 72 000 reservas** en total (≈ 24 000 por año; el valor exacto sale del generador) |
 
 **Por qué al menos 2 años:** el modelo debe ver cada temporada (fin de año, Fiestas Patrias, verano)
 **dos veces o más**: una para aprender el patrón y otra para comprobar que lo predice bien. Con un solo
@@ -32,8 +32,9 @@ año, la evaluación tendría que hacerse sobre temporadas que el modelo nunca v
 | Prueba de ocupación (MAPE) | Últimos 90 días antes del corte: ocupación esperada vs. real |
 
 **Cálculo del volumen [Supuesto]:** 240 habitaciones × 68 % de ocupación ≈ 163 habitaciones ocupadas
-por noche. Con estancias de ~2.4 noches y ~1.06 habitaciones por reserva → ≈ 64 llegadas efectivas por
-día. Sumando cancelaciones (~14 %) y no-shows (~2 %) → ≈ 76 reservas por día ≈ 28 000 al año.
+por noche. Con estancias de ~2.6 noches y ~1.14 habitaciones por reserva → ≈ 55 llegadas efectivas por
+día. Sumando cancelaciones (~14 %) y no-shows (~2 %) → ≈ 66 reservas por día ≈ 24 000 al año
+(≈ 72 000 en todo el periodo).
 
 ---
 
@@ -107,10 +108,10 @@ día. Sumando cancelaciones (~14 %) y no-shows (~2 %) → ≈ 76 reservas por d�
 | Canal | OTA 40 %, web Hilton 25 %, corporativo 20 %, agencia 10 %, teléfono 5 % | [Supuesto] según D-EDGE: las OTA dominan la venta digital y la web propia es el segundo canal |
 | Segmento | Ocio 45 %, negocios 35 %, grupo 10 %, evento 10 % | [Fuente + Supuesto] 16-17 % de turistas extranjeros viene por negocios (PROMPERÚ) y prefiere hoteles de 4-5 estrellas en Lima; en un hotel corporativo de Miraflores la proporción es mayor |
 | Procedencia | Extranjero 70 %, nacional 30 % | [Fuente + Supuesto] Lima recibe al 79 % de los turistas extranjeros (PROMPERÚ 2025) |
-| Noches | Mediana 2, promedio ~2.4 (1 a 10) | [Fuente + Supuesto] en Lima la permanencia mediana es 3 noches y el promedio 5 (PROMPERÚ 2024); en un mismo hotel la estancia es más corta |
+| Noches | Mediana 2, promedio ~2.6 (1 a 10) | [Fuente + Supuesto] en Lima la permanencia mediana es 3 noches y el promedio 5 (PROMPERÚ 2024); en un mismo hotel la estancia es más corta |
 | Anticipación | Negocios: 0-21 días; ocio/OTA: 0-120 días (promedio ~30); grupos y eventos: 30-180 días | [Supuesto] |
 | Política de tarifa | Flexible 75 %, no reembolsable 25 % | [Supuesto] D-EDGE recomienda más tarifas no reembolsables para reducir cancelaciones |
-| Habitaciones por reserva | 1 en la mayoría; grupos y eventos de 5 a 30 | [Supuesto] |
+| Habitaciones por reserva | 1 en la mayoría (promedio ~1.14); bloques de grupos y eventos de 5 a 30 | [Supuesto] |
 
 ---
 
@@ -147,7 +148,7 @@ de cancelación.
    - Llegada **antes** del 31/10/2026 → `completada`, `cancelada` o `no_show` (resultado conocido).
    - Llegada **desde** el 31/10/2026 → `confirmada`, o `cancelada` si la cancelación ocurrió antes del corte.
 2. **Fechas:** reserva ≤ llegada < salida; si es cancelada, reserva ≤ fecha de cancelación ≤ llegada.
-3. **Capacidad:** el hotel acepta reservas por encima de las 240 habitaciones (sobreventa), porque espera
+3. **Capacidad:** el hotel acepta reservas por encima de las 240 habitaciones (hasta 264 en libros, un 10 % más: sobreventa), porque espera
    cancelaciones y no-shows: ese es el riesgo que PredicTree estima. Casi siempre la sobreventa se
    compensa con cancelaciones y no-shows, pero en pocas noches de alta demanda se presentan más huéspedes
    que habitaciones: ese exceso se registra como `reubicaciones_reales` y la `ocupacion_real` nunca
@@ -187,7 +188,24 @@ de cancelación.
 
 ---
 
-## 8. Fuentes consultadas
+## 8. Cómo se generan y dónde quedan
+
+El generador está en `backend/app/simulacion/` y se ejecuta con `python -m scripts.generar_datos`
+(desde la carpeta `backend`). Lee el calendario, los tipos de habitación y los parámetros de la base de
+datos, y escribe en `data/generados/` (no se sube a GitHub):
+
+| Archivo | Contenido |
+|---|---|
+| `reservas_historial.csv` | Todas las reservas simuladas (historia y reservas futuras ya registradas) |
+| `ocupacion_real_por_noche.csv` | Habitaciones en libros, huéspedes presentes, ocupación % y reubicaciones por noche |
+| `reporte_validacion.md` | Comparación de lo generado con las cifras de este documento y reglas de coherencia |
+
+Después carga las reservas en la tabla `reserva` con un `lote_carga` de `origen_datos = 'generador'`.
+Con la misma semilla siempre salen exactamente los mismos datos.
+
+---
+
+## 9. Fuentes consultadas
 
 - Feriados 2026: Caretas — https://caretas.pe/nacional/feriados-2026-los-16-dias-de-descanso-oficial-en-el-peru/
 - Feriados 2024 (16 desde 2024): El Peruano — https://elperuano.pe/noticia/231090-feriados-2024-en-peru-conoce-aqui-el-calendario-de-dias-festivos-para-este-ano
