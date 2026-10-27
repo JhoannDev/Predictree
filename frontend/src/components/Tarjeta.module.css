@@ -1,0 +1,26 @@
+.tarjeta {
+  padding: 20px 22px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.cabecera {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.titulo {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.descripcion {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--color-texto-suave);
+}

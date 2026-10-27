@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import auth, health
+from app.api.routes import analisis, auth, consultas, health, tarifas
 from app.core.config import settings
 
 app = FastAPI(
@@ -26,3 +26,6 @@ app.add_middleware(
 API_PREFIX = "/api"
 app.include_router(health.router, prefix=API_PREFIX)
 app.include_router(auth.router, prefix=API_PREFIX)
+app.include_router(analisis.router, prefix=API_PREFIX)
+app.include_router(consultas.router, prefix=API_PREFIX)
+app.include_router(tarifas.router, prefix=API_PREFIX)

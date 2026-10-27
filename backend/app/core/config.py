@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     jwt_expire_minutes: int = 480
     cors_origins: str = "http://localhost:5173"
+    # Hora del hotel: se usa solo para avisar si los datos no están al día (ver app/core/reloj.py)
+    zona_horaria_hotel: str = "America/Lima"
+    verificar_hora_internet: bool = True
 
     @property
     def cors_origins_list(self) -> list[str]:

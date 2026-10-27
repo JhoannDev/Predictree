@@ -22,3 +22,5 @@ models/*.joblib
 .DS_Store
 Thumbs.db
 *.log
+
+Claude outputs/

@@ -1,0 +1,184 @@
+.pestanas {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 16px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+}
+
+.pestana {
+  padding: 8px 16px;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radio-sm);
+}
+
+.activa {
+  color: #fff;
+  background: var(--color-primario);
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.campo {
+  display: grid;
+  gap: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+}
+
+.campo select,
+.campo input {
+  min-width: 150px;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+}
+
+.pctCelda {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  min-width: 104px;
+}
+
+.pista {
+  height: 8px;
+  overflow: hidden;
+  background: var(--color-fondo);
+  border-radius: 4px;
+}
+
+.relleno {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.filaClic {
+  cursor: pointer;
+}
+
+.filaClic:hover td {
+  background: var(--color-fondo);
+}
+
+.detalle td {
+  padding: 0 !important;
+  background: var(--color-fondo);
+}
+
+.detalleCaja {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 16px 20px;
+}
+
+.detalleCaja h3 {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+}
+
+.efecto {
+  text-align: right;
+}
+
+.efecto small {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.factor {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.factor:last-child {
+  border-bottom: 0;
+}
+
+.factor small {
+  display: block;
+  color: var(--color-texto-suave);
+}
+
+.sube {
+  color: #a8101f;
+}
+
+.baja {
+  color: #0d6b3b;
+}
+
+.resumenProb {
+  display: grid;
+  gap: 6px;
+}
+
+.resumenProb div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.paginacion {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--color-texto-suave);
+}
+
+.paginacion div {
+  display: flex;
+  gap: 6px;
+}
+
+.leyendaTramos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--color-texto-suave);
+}
+
+.leyendaTramos span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.leyendaTramos i {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+}

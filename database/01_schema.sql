@@ -1,5 +1,5 @@
 -- =====================================================================
--- PredicTree · 01_schema.sql   (versión 2)
+-- PredicTree · 01_schema.sql   (versión 4)
 -- Estructura completa de la base de datos: 17 tablas.
 --
 -- Basada en el modelo entidad-relación del equipo (Sesión 07), completada
@@ -329,6 +329,8 @@ CREATE TABLE IF NOT EXISTS ocupacion_esperada (
     -- Lo que estima el modelo (cantidades esperadas, por eso pueden tener decimales)
     cancelaciones_estimadas NUMERIC(7,2)   NOT NULL CHECK (cancelaciones_estimadas >= 0),
     noshows_estimados       NUMERIC(7,2)   NOT NULL CHECK (noshows_estimados >= 0),
+    -- Reservas que todavía no llegan pero se espera recibir (pickup histórico, según los días que faltan)
+    pickup_estimado         NUMERIC(7,2)   NOT NULL DEFAULT 0 CHECK (pickup_estimado >= 0),
     ocupacion_esperada      NUMERIC(7,2)   NOT NULL CHECK (ocupacion_esperada >= 0),
     capacidad_disponible    INTEGER        NOT NULL CHECK (capacidad_disponible > 0),
     -- Puede superar 100 %: eso es justamente el riesgo de overbooking.
@@ -351,6 +353,14 @@ COMMENT ON TABLE ocupacion_esperada IS
 COMMENT ON COLUMN ocupacion_esperada.reubicaciones_reales IS
     'Reubicaciones (walk rate) de esa noche: huéspedes que se presentaron sin habitación disponible. '
     'Solo fechas pasadas; es el indicador de overbooking que el Business Case busca reducir.';
+
+-- Versión 4: si la tabla ya existía, agrega la columna sin borrar datos.
+ALTER TABLE ocupacion_esperada
+    ADD COLUMN IF NOT EXISTS pickup_estimado NUMERIC(7,2) NOT NULL DEFAULT 0 CHECK (pickup_estimado >= 0);
+
+COMMENT ON COLUMN ocupacion_esperada.pickup_estimado IS
+    'Habitaciones que se espera sumar por reservas aún no hechas (pickup). '
+    'ocupacion_esperada = reservadas - cancelaciones - no-shows + pickup.';
 
 CREATE INDEX IF NOT EXISTS ix_ocupacion_fecha ON ocupacion_esperada (fecha_analizada);
 

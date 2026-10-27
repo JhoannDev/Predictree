@@ -1,0 +1,27 @@
+.grupo {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+}
+
+.boton {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+}
+
+.boton:hover:not(.activo) {
+  color: var(--color-texto);
+}
+
+.activo {
+  color: var(--color-primario);
+  background: var(--color-superficie);
+  box-shadow: 0 1px 3px rgb(15 31 61 / 12%);
+}

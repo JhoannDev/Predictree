@@ -12,21 +12,22 @@
   flex-shrink: 0;
   width: var(--ancho-sidebar);
   height: 100vh;
-  padding: 24px 14px 20px;
+  padding: 16px 12px 12px;
   color: #ffffff;
   background: linear-gradient(180deg, var(--color-primario) 0%, var(--color-primario-oscuro) 100%);
 }
 
 .logo {
-  padding: 0 10px 24px;
+  padding: 0 10px 14px;
 }
 
 .menu {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .grupo {
@@ -35,9 +36,13 @@
   gap: 2px;
 }
 
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
 .grupoTitulo {
-  padding: 0 12px 6px;
-  font-size: 11px;
+  padding: 0 12px 3px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -46,10 +51,11 @@
 
 .enlace {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  padding: 10px 12px;
-  font-size: 14px;
+  padding: 7px 12px;
+  font-size: 13.5px;
+  white-space: nowrap;
   border-radius: var(--radio-md);
   opacity: 0.85;
   transition:
@@ -69,8 +75,8 @@
 }
 
 .pie {
-  padding: 16px 12px 0;
-  font-size: 12px;
+  padding: 10px 12px 0;
+  font-size: 11.5px;
   line-height: 1.4;
   border-top: 1px solid rgb(255 255 255 / 15%);
   opacity: 0.7;
@@ -107,6 +113,20 @@
 
 .migas strong {
   color: var(--color-texto);
+}
+
+.estado {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 auto 0 24px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primario);
+  white-space: nowrap;
+  background: var(--color-primario-suave);
+  border-radius: 999px;
 }
 
 .usuario {

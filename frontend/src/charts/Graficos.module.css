@@ -1,0 +1,78 @@
+.tooltip {
+  min-width: 190px;
+  padding: 10px 12px;
+  font-size: 12px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  box-shadow: 0 6px 24px rgb(15 31 61 / 14%);
+}
+
+.tooltipTitulo {
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fila {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 1px 0;
+  color: var(--color-texto-suave);
+}
+
+.fila strong {
+  color: var(--color-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--color-texto-suave);
+}
+
+.leyendaItem {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.linea {
+  display: inline-block;
+  width: 18px;
+  height: 0;
+  border-top: 2px solid;
+}
+
+.discontinua {
+  border-top-style: dashed;
+}
+
+.punto {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-superficie);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--color-borde);
+}
+
+.franja {
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  background: rgb(20 71 184 / 16%);
+  border-radius: 2px;
+}
+
+.cuadro {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}

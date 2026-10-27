@@ -1,13 +1,16 @@
+import os
 import uuid
 
-import pytest
-from fastapi.testclient import TestClient
-from sqlalchemy import delete
+os.environ.setdefault("VERIFICAR_HORA_INTERNET", "false")  # las pruebas no usan la red
 
-from app.core.security import hash_password
-from app.db.session import SessionLocal
-from app.main import app
-from app.models import Usuario
+import pytest  # noqa: E402
+from fastapi.testclient import TestClient  # noqa: E402
+from sqlalchemy import delete  # noqa: E402
+
+from app.core.security import hash_password  # noqa: E402
+from app.db.session import SessionLocal  # noqa: E402
+from app.main import app  # noqa: E402
+from app.models import Usuario  # noqa: E402
 
 
 @pytest.fixture

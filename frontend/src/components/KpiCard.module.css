@@ -1,0 +1,56 @@
+.tarjeta {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.icono {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radio-md);
+}
+
+.azul {
+  color: var(--color-primario);
+  background: var(--color-primario-suave);
+}
+.verde {
+  color: var(--color-riesgo-bajo);
+  background: var(--color-riesgo-bajo-suave);
+}
+.ambar {
+  color: #a86400;
+  background: var(--color-riesgo-medio-suave);
+}
+.rojo {
+  color: var(--color-riesgo-alto);
+  background: var(--color-riesgo-alto-suave);
+}
+
+.etiqueta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.valor {
+  margin-top: 2px;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.ayuda {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-texto-suave);
+}

@@ -5,6 +5,7 @@ import CargaDatosPage from "./pages/CargaDatosPage";
 import DashboardPage from "./pages/DashboardPage";
 import FechasCriticasPage from "./pages/FechasCriticasPage";
 import LoginPage from "./pages/LoginPage";
+import ModeloPage from "./pages/ModeloPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import OcupacionPage from "./pages/OcupacionPage";
 import PrediccionesPage from "./pages/PrediccionesPage";
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/riesgo" element={<RiesgoPage />} />
           <Route path="/fechas-criticas" element={<FechasCriticasPage />} />
           <Route path="/tarifas" element={<TarifasPage />} />
+          <Route path="/modelo" element={<ModeloPage />} />
           <Route path="/reportes" element={<ReportesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

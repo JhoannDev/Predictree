@@ -105,6 +105,7 @@ Copy-Item .env.example .env
 - [ ] Vistas de los reportes R-01 a R-04
 - [x] Generador de datos simulados (`python -m scripts.generar_datos`)
 - [ ] Carga y validación de archivos
-- [ ] Modelo predictivo de cancelación y no-show
-- [ ] Ocupación esperada, riesgo, fechas críticas y sugerencias de tarifa
-- [ ] Dashboard y reportes R-01 a R-04
+- [x] Modelo predictivo de cancelación y no-show (`python -m scripts.entrenar_modelo`, ver `docs/modelo_y_analisis.md`)
+- [x] Ocupación esperada, riesgo, fechas críticas y sugerencias de tarifa (`python -m scripts.ejecutar_analisis`)
+- [x] Pantallas Dashboard y Predicciones (con métricas del modelo)
+- [ ] Pantallas restantes y reportes R-01 a R-04

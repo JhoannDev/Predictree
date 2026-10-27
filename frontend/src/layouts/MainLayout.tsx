@@ -1,15 +1,19 @@
-import { ChevronRight, LogOut } from "lucide-react";
+import { ChevronRight, Database, LogOut } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
+import AvisoFecha from "../components/AvisoFecha";
 import Logo from "../components/Logo";
 import { gruposNavegacion, navegacion } from "../config/navigation";
-import { formatearRol, iniciales } from "../utils/formato";
+import { useCarga } from "../hooks/useCarga";
+import { obtenerEstado } from "../services/analisisService";
+import { formatearFecha, formatearRol, iniciales } from "../utils/formato";
 import styles from "./MainLayout.module.css";
 
 /** Estructura común de las pantallas internas: menú lateral + barra superior + contenido. */
 export default function MainLayout() {
   const { usuario, logout } = useAuth();
   const { pathname } = useLocation();
+  const { datos: estado } = useCarga(obtenerEstado);
   const actual = navegacion.find((item) => pathname.startsWith(item.ruta));
 
   return (
@@ -56,6 +60,22 @@ export default function MainLayout() {
             <strong>{actual?.etiqueta ?? "Página no encontrada"}</strong>
           </nav>
 
+          {estado?.fecha_corte && (
+            <p
+              className={styles.estado}
+              title={
+                estado.datos_simulados
+                  ? `Datos de demostración. Su fecha de corte (${formatearFecha(estado.fecha_corte)}) hace de "hoy" para el modelo, aunque hoy sea ${estado.hoy ? formatearFecha(estado.hoy) : "otra fecha"}.`
+                  : "Fecha de corte de los datos (el último día cargado), versión del modelo y origen de los datos"
+              }
+            >
+              <Database size={14} aria-hidden />
+              Datos al {formatearFecha(estado.fecha_corte)}
+              {estado.version && <> · Modelo {estado.version}</>}
+              {estado.datos_simulados && <> · Datos simulados</>}
+            </p>
+          )}
+
           <div className={styles.usuario}>
             <span className={styles.avatar} aria-hidden>
               {iniciales(usuario?.nombre_completo)}
@@ -72,6 +92,7 @@ export default function MainLayout() {
         </header>
 
         <main className={styles.contenido}>
+          <AvisoFecha estado={estado} />
           <Outlet />
         </main>
       </div>
